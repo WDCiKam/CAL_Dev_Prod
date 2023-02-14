@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <fullName>rio_ed__Fixed_Term_Fee_Status__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Only used for Fixed Term and Term - Course fee methods. Creates Student Fee for this PE Pathway.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Only used for Fixed Term and Term - Course fee methods. Creates Student Fee for this PE Pathway.</inlineHelpText>
+        <label>Term Fee Status</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Don&apos;t generate</fullName>
+                    <default>false</default>
+                    <label>Don&apos;t generate</label>
+                </value>
+                <value>
+                    <fullName>Not generated</fullName>
+                    <default>true</default>
+                    <label>Not generated</label>
+                </value>
+                <value>
+                    <fullName>Generate</fullName>
+                    <default>false</default>
+                    <label>Generate</label>
+                </value>
+                <value>
+                    <fullName>Fee generated</fullName>
+                    <default>false</default>
+                    <label>Fee generated</label>
+                </value>
+                <value>
+                    <fullName>Error</fullName>
+                    <default>false</default>
+                    <label>Error</label>
+                </value>
+                <value>
+                    <fullName>Regenerate</fullName>
+                    <default>false</default>
+                    <label>Regenerate</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <validationRules>
+        <fullName>rio_ed__Max_Credits_Per_Term</fullName>
+        <active>true</active>
+        <description>Cannot exceed maximum credits for this Term</description>
+        <errorConditionFormula>AND(rio_ed__Max_Credits_Calculated__c != 0,
+ rio_ed__Credits_Enrolled__c &gt; rio_ed__Max_Credits_Calculated__c 
+)</errorConditionFormula>
+        <errorDisplayField>rio_ed__Credits_Enrolled__c</errorDisplayField>
+        <errorMessage>Exceeded maximum credits for this Term</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>rio_ed__Required_Default_Program_Pathway</fullName>
+        <active>true</active>
+        <description>Obsolete. This is to ensure the Program Pathway is populated with PE&apos;s study pathway is &quot;Default&quot;. This is important to render the list of courses in enrollment wizard.</description>
+        <errorConditionFormula>ISPICKVAL( rio_ed__Program_Enrollment__r.rio_ed__Study_Pathway__c , &apos;Default&apos;) &amp;&amp; ISBLANK( rio_ed__Program_Pathway__c )</errorConditionFormula>
+        <errorDisplayField>rio_ed__Program_Pathway__c</errorDisplayField>
+        <errorMessage>Please select a Program Pathway.</errorMessage>
+    </validationRules>
+</CustomObject>

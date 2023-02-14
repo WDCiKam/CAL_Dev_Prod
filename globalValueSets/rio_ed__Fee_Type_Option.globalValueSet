@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>FEE-HELP</fullName>
+        <default>false</default>
+        <label>FEE-HELP</label>
+    </customValue>
+    <customValue>
+        <fullName>Indigenous Staff Scholarship</fullName>
+        <default>false</default>
+        <label>Indigenous Staff Scholarship</label>
+    </customValue>
+    <customValue>
+        <fullName>Research Training Program (RTP) Stipend</fullName>
+        <default>false</default>
+        <label>Research Training Program (RTP) Stipend</label>
+    </customValue>
+    <customValue>
+        <fullName>Research Training Program (RTP) Fees Offset</fullName>
+        <default>false</default>
+        <label>Research Training Program (RTP) Fees Offset</label>
+    </customValue>
+    <customValue>
+        <fullName>Not a scholarship listed</fullName>
+        <default>false</default>
+        <label>Not a scholarship listed</label>
+    </customValue>
+    <masterLabel>Fee Type Option</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>
